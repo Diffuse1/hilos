@@ -26,14 +26,14 @@ ft = time.time()-t0
 #---------------------------------------------------------------------------
 global_arrayNum =[]
 def contador2(inicio,fin):
-    for i in range(inicio,fin+1, 1):
+    for i in range(inicio,fin+1):
         global_arrayNum.append( i )
         time.sleep(0.01)
     return 0
 
 t0 = time.time()
 lista_hilos =[]
-t = threading.Thread(target=contador2, args=(100/4))
+t = threading.Thread(target=contador2, args=(1,24))
 lista_hilos.append(t)
 t.start()
 for i in lista_hilos:
