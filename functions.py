@@ -29,13 +29,13 @@ def contador2(inicio,fin):
     for i in range(inicio,fin+1):
         global_arrayNum.append( i )
         time.sleep(0.01)
-    return 0
-
 t0 = time.time()
-lista_hilos =[]
-t = threading.Thread(target=contador2, args=(1,24))
-lista_hilos.append(t)
-t.start()
+lista_hilos=[]
+for i in range(1,101,25):
+    t = threading.Thread(target=contador2, args=(i,i + 24 if i +24 <=100 else 100))
+    lista_hilos.append(t)
+    t.start()
+
 for i in lista_hilos:
     t.join()
 tf = time.time()-t0
